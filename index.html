@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Générateur de calculs</title>
+
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -13,38 +14,48 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      height: 100vh;
+      align-items: center;
+      min-height: 100vh;
     }
 
     h1 {
-  font-size: clamp(24px, 4vw, 48px);
-}
+      font-size: 40px;
+      margin-bottom: 20px;
+    }
 
-.problem {
-  font-size: clamp(32px, 8vw, 80px);
-}
+    .problem {
+      font-size: 120px;
+      font-weight: bold;
+      margin: 20px;
+    }
 
-.answer {
-  font-size: clamp(24px, 6vw, 60px);
-}
+    .answer {
+      font-size: 80px;
+      color: green;
+      display: none;
+      margin: 10px;
+    }
 
-    /* 👇 Buttons back to normal size */
     button {
-      padding: 10px 20px;
-      font-size: 1.2em;
+      padding: 10px 18px;
+      font-size: 16px;
       cursor: pointer;
       border: none;
       background-color: #007BFF;
       color: white;
       border-radius: 5px;
       margin: 10px;
+
+      width: auto;
+      max-width: 200px;
     }
 
     button:hover {
-      background-color: #7F00FF
+      background-color: #7F00FF;
     }
   </style>
 </head>
+
 <body>
 
   <h1>Exercices de mathématiques</h1>
@@ -80,15 +91,11 @@
       addResult = a + b;
       subResult = c - d;
 
-      document.getElementById("addition").textContent =
-        `${a} + ${b} = ?`;
-      document.getElementById("subtraction").textContent =
-        `${c} - ${d} = ?`;
+      document.getElementById("addition").textContent = `${a} + ${b} = ?`;
+      document.getElementById("subtraction").textContent = `${c} - ${d} = ?`;
 
-      document.getElementById("additionAnswer").textContent =
-        `Réponse : ${addResult}`;
-      document.getElementById("subtractionAnswer").textContent =
-        `Réponse : ${subResult}`;
+      document.getElementById("additionAnswer").textContent = `Réponse : ${addResult}`;
+      document.getElementById("subtractionAnswer").textContent = `Réponse : ${subResult}`;
 
       document.getElementById("additionAnswer").style.display = "none";
       document.getElementById("subtractionAnswer").style.display = "none";
