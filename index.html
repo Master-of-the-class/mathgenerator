@@ -7,34 +7,41 @@
     body {
       font-family: Arial, sans-serif;
       text-align: center;
-      margin-top: 100px;
+      margin: 0;
       background-color: #f4f4f4;
+
+      /* Center everything vertically */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 100vh;
     }
 
     h1 {
-      font-size: 2.5em;
+      font-size: 4vw;
+      margin-bottom: 2vh;
     }
 
     .problem {
-      font-size: 2em;
-      margin: 20px;
+      font-size: 8vw; /* BIG and responsive */
+      margin: 2vh;
     }
 
     .answer {
-      font-size: 1.5em;
+      font-size: 6vw;
       color: green;
       display: none;
     }
 
     button {
-      padding: 10px 20px;
-      font-size: 1.2em;
+      padding: 1vh 2vw;
+      font-size: 2vw;
       cursor: pointer;
       border: none;
       background-color: #007BFF;
       color: white;
-      border-radius: 5px;
-      margin: 10px;
+      border-radius: 10px;
+      margin: 1vh;
     }
 
     button:hover {
@@ -52,8 +59,8 @@
   <div class="problem" id="subtraction"></div>
   <div class="answer" id="subtractionAnswer"></div>
 
-  <button onclick="generateProblems()">Générer de nouveaux calculs</button>
-  <button onclick="showAnswers()">Afficher les réponses</button>
+  <button onclick="generateProblems()">Générer</button>
+  <button onclick="showAnswers()">Réponses</button>
 
   <script>
     let addResult = 0;
@@ -70,7 +77,6 @@
       let c = random4Digit();
       let d = random4Digit();
 
-      // Éviter un résultat négatif
       if (c < d) {
         [c, d] = [d, c];
       }
@@ -88,7 +94,6 @@
       document.getElementById("subtractionAnswer").textContent =
         `Réponse : ${subResult}`;
 
-      // Cacher les réponses
       document.getElementById("additionAnswer").style.display = "none";
       document.getElementById("subtractionAnswer").style.display = "none";
     }
@@ -98,7 +103,6 @@
       document.getElementById("subtractionAnswer").style.display = "block";
     }
 
-    // Générer au chargement
     generateProblems();
   </script>
 
