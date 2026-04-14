@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Générateur de calculs</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 100px;
+      background-color: #f4f4f4;
+    }
+
+    h1 {
+      font-size: 2.5em;
+    }
+
+    .problem {
+      font-size: 2em;
+      margin: 20px;
+    }
+
+    .answer {
+      font-size: 1.5em;
+      color: green;
+      display: none;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 1.2em;
+      cursor: pointer;
+      border: none;
+      background-color: #007BFF;
+      color: white;
+      border-radius: 5px;
+      margin: 10px;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Exercices de mathématiques</h1>
+
+  <div class="problem" id="addition"></div>
+  <div class="answer" id="additionAnswer"></div>
+
+  <div class="problem" id="subtraction"></div>
+  <div class="answer" id="subtractionAnswer"></div>
+
+  <button onclick="generateProblems()">Générer de nouveaux calculs</button>
+  <button onclick="showAnswers()">Afficher les réponses</button>
+
+  <script>
+    let addResult = 0;
+    let subResult = 0;
+
+    function random4Digit() {
+      return Math.floor(Math.random() * 9000) + 1000;
+    }
+
+    function generateProblems() {
+      let a = random4Digit();
+      let b = random4Digit();
+
+      let c = random4Digit();
+      let d = random4Digit();
+
+      // Éviter un résultat négatif
+      if (c < d) {
+        [c, d] = [d, c];
+      }
+
+      addResult = a + b;
+      subResult = c - d;
+
+      document.getElementById("addition").textContent =
+        `${a} + ${b} = ?`;
+      document.getElementById("subtraction").textContent =
+        `${c} - ${d} = ?`;
+
+      document.getElementById("additionAnswer").textContent =
+        `Réponse : ${addResult}`;
+      document.getElementById("subtractionAnswer").textContent =
+        `Réponse : ${subResult}`;
+
+      // Cacher les réponses
+      document.getElementById("additionAnswer").style.display = "none";
+      document.getElementById("subtractionAnswer").style.display = "none";
+    }
+
+    function showAnswers() {
+      document.getElementById("additionAnswer").style.display = "block";
+      document.getElementById("subtractionAnswer").style.display = "block";
+    }
+
+    // Générer au chargement
+    generateProblems();
+  </script>
+
+</body>
+</html>
