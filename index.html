@@ -17,20 +17,16 @@
     }
 
     h1 {
-      font-size: 4vw;
-      margin-bottom: 2vh;
-    }
+  font-size: clamp(24px, 4vw, 48px);
+}
 
-    .problem {
-      font-size: 8vw; /* responsive */
-      margin: 2vh;
-    }
+.problem {
+  font-size: clamp(32px, 8vw, 80px);
+}
 
-    .answer {
-      font-size: 6vw; /* responsive */
-      color: green;
-      display: none;
-    }
+.answer {
+  font-size: clamp(24px, 6vw, 60px);
+}
 
     /* 👇 Buttons back to normal size */
     button {
